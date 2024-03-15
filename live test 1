@@ -1,0 +1,32 @@
+void main(){
+
+  List<Map<String, dynamic>>fruits=[
+
+    {'name':'Mango','color':'Green','price':50.0}
+
+  ];
+  print('Original fruit details before discount:');
+  displayFruitDetails(fruits);
+  applyPriceDiscount(fruits,10.00);
+  displayFruitDetails(fruits);
+
+
+
+}
+
+void displayFruitDetails(List<Map<String, dynamic>>fruits){
+
+
+  for(var i in fruits){
+    print("Name: ${i['name']}, Color: ${i['color']}, Price: \$${i['price']}");
+
+  }
+}
+
+void applyPriceDiscount(List<Map<String, dynamic>> fruits, double discount) {
+  for (var i in fruits) {
+    double old_price = i['price'];
+    double new_price = old_price - (old_price * discount / 100);
+    i['price'] = new_price;
+  }
+}
